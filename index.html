@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harborline Foods — Q3 2026 Performance Report</title>
+  <style>
+    :root {
+      --ink: #17211c;
+      --muted: #5d675f;
+      --line: #e4dcd0;
+      --paper: #f4f0e8;
+      --card: #fffdf8;
+      --pine: #1b4d38;
+      --pine-deep: #123528;
+      --pine-soft: #e6f1ea;
+      --copper: #b8612d;
+      --copper-soft: #f8ebe3;
+      --gold: #a6843d;
+      --gold-soft: #f6f0e2;
+      --danger: #8d3b32;
+      --danger-soft: #f8e8e5;
+      --shadow: 0 10px 30px rgba(23, 33, 28, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, #efe7d8 0, transparent 32rem),
+        var(--paper);
+      font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+      line-height: 1.5;
+    }
+
+    a { color: var(--pine); }
+
+    .wrap {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    header.top {
+      background: var(--pine-deep);
+      color: #f7f3ea;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      padding: 18px 0 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      letter-spacing: 0.14em;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: #f3c56b;
+      color: var(--pine-deep);
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+    }
+
+    nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #f7f3ea;
+      text-decoration: none;
+      opacity: 0.86;
+    }
+
+    nav a:hover { opacity: 1; }
+
+    .hero {
+      padding: 8px 0 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 12px;
+      color: #f3c56b;
+    }
+
+    h1 {
+      margin: 0;
+      font-family: Palatino, "Palatino Linotype", Georgia, serif;
+      font-size: clamp(34px, 5vw, 52px);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      background: rgba(255, 253, 248, 0.1);
+      border: 1px solid rgba(255, 253, 248, 0.16);
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 13px;
+    }
+
+    main { padding: 28px 0 64px; }
+
+    section { margin-bottom: 28px; }
+
+    h2 {
+      margin: 0 0 6px;
+      font-family: Palatino, "Palatino Linotype", Georgia, serif;
+      font-size: 30px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .lede {
+      margin: 0 0 16px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+
+    .kpis {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .card:has(table) {
+      overflow-x: auto;
+    }
+
+    .kpi .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .kpi .value {
+      font-family: Palatino, "Palatino Linotype", Georgia, serif;
+      font-size: 32px;
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+
+    .delta {
+      display: inline-flex;
+      align-items: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .up { background: var(--pine-soft); color: var(--pine); }
+    .down { background: var(--danger-soft); color: var(--danger); }
+    .flat { background: var(--gold-soft); color: #6d5420; }
+
+    .findings {
+      margin: 16px 0 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .findings li {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-left: 4px solid var(--copper);
+      border-radius: 14px;
+      padding: 12px 14px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 14px;
+    }
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: end;
+      margin-bottom: 14px;
+    }
+
+    h3 {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .legend {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .swatch {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .bars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      align-items: end;
+      height: 260px;
+      padding: 8px 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .month { text-align: center; height: 100%; display: flex; flex-direction: column; justify-content: end; }
+
+    .pair {
+      display: flex;
+      justify-content: center;
+      align-items: end;
+      gap: 8px;
+      height: 220px;
+    }
+
+    .bar {
+      width: 28px;
+      border-radius: 8px 8px 2px 2px;
+      position: relative;
+    }
+
+    .bar span {
+      position: absolute;
+      top: -22px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .now { background: var(--pine); }
+    .then { background: #c9bfae; }
+
+    .month p { margin: 10px 0 0; font-size: 13px; font-weight: 700; }
+
+    .chart-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .donut-wrap {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .donut {
+      width: 160px;
+      height: 160px;
+    }
+
+    .channel-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .channel-list li {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 14px;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    caption {
+      text-align: left;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    th {
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+
+    tbody tr:hover { background: #faf6ee; }
+
+    .tag {
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .watch { background: var(--copper-soft); color: var(--copper); }
+    .good { background: var(--pine-soft); color: var(--pine); }
+
+    .detail-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .detail-grid h3 { margin-bottom: 8px; }
+
+    .detail-grid p, .detail-grid li { color: var(--ink); }
+
+    .detail-grid ul { margin: 0; padding-left: 18px; }
+
+    .links { margin: 8px 0 0; padding-left: 18px; }
+
+    ol.actions { margin: 0; padding-left: 20px; display: grid; gap: 10px; }
+
+    ol.actions li { padding-left: 4px; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 22px 0 36px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .foot {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 860px) {
+      .kpis, .grid-2, .detail-grid, .donut-wrap { grid-template-columns: 1fr; }
+      nav { display: none; }
+      .bars { height: 220px; }
+      .card { padding: 14px; }
+      th, td { padding: 8px 6px; }
+      table { min-width: 520px; }
+    }
+
+    @media print {
+      body { background: white; }
+      header.top { background: white; color: black; }
+      nav, .chip { border-color: #ccc; }
+      .card { box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap">
+      <div class="top-bar">
+        <div class="brand"><span class="mark">H</span> HARBORLINE FOODS</div>
+        <nav>
+          <a href="#summary">Summary</a>
+          <a href="#main">Main content</a>
+          <a href="#details">Details</a>
+          <a href="#conclusion">Conclusion</a>
+        </nav>
+      </div>
+      <div class="hero">
+        <p class="eyebrow">Quarterly performance report</p>
+        <h1>Q3 2026 commercial results</h1>
+        <div class="meta">
+          <span class="chip">Report date: 9 October 2026</span>
+          <span class="chip">Reporting period: 1 July – 30 September 2026</span>
+          <span class="chip">Audience: Leadership team</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section id="summary">
+      <h2>Summary</h2>
+      <p class="lede">Harborline closed the quarter ahead of last year. Growth came mainly from online orders and the beverages range. Margin slipped slightly because inbound freight stayed expensive, and the South region is the clear weak spot.</p>
+      <div class="kpis">
+        <article class="card kpi">
+          <div class="label">Net revenue</div>
+          <div class="value">€18.4m</div>
+          <span class="delta up">+11.4% vs Q3 2025</span>
+        </article>
+        <article class="card kpi">
+          <div class="label">Gross margin</div>
+          <div class="value">34.8%</div>
+          <span class="delta down">−0.6 pp vs Q2</span>
+        </article>
+        <article class="card kpi">
+          <div class="label">Online share</div>
+          <div class="value">41%</div>
+          <span class="delta up">+4 pp vs last year</span>
+        </article>
+        <article class="card kpi">
+          <div class="label">Group NPS</div>
+          <div class="value">56</div>
+          <span class="delta flat">South region at 47</span>
+        </article>
+      </div>
+      <ul class="findings">
+        <li><strong>Revenue rose for a fifth straight quarter.</strong> September was the strongest month at €6.44m.</li>
+        <li><strong>Beverages and fresh produce led growth,</strong> up 18.6% and 15.2% year on year.</li>
+        <li><strong>Three South stores explain most of the service gap.</strong> Their NPS and margin sit well below the group.</li>
+        <li><strong>Freight took 0.6 percentage points off margin.</strong> The Q4 peak will widen that gap unless rates are reset in October.</li>
+      </ul>
+    </section>
+
+    <section id="main">
+      <h2>Main content</h2>
+      <p class="lede">The charts and tables below compare this quarter with the same months last year, then break results down by channel, region, and category.</p>
+
+      <div class="grid-2">
+        <article class="card">
+          <div class="section-head">
+            <h3>Revenue by month</h3>
+            <div class="legend">
+              <span><i class="swatch now"></i>2026</span>
+              <span><i class="swatch then"></i>2025</span>
+            </div>
+          </div>
+          <div class="bars" role="img" aria-label="Bar chart comparing monthly revenue in Q3 2026 and Q3 2025. July 5.82 million versus 5.21 million, August 6.14 million versus 5.48 million, September 6.44 million versus 5.82 million.">
+            <div class="month">
+              <div class="pair">
+                <div class="bar then" style="height: 74%" title="July 2025: €5.21m"><span>5.21</span></div>
+                <div class="bar now" style="height: 83%" title="July 2026: €5.82m"><span>5.82</span></div>
+              </div>
+              <p>July</p>
+            </div>
+            <div class="month">
+              <div class="pair">
+                <div class="bar then" style="height: 78%" title="August 2025: €5.48m"><span>5.48</span></div>
+                <div class="bar now" style="height: 88%" title="August 2026: €6.14m"><span>6.14</span></div>
+              </div>
+              <p>August</p>
+            </div>
+            <div class="month">
+              <div class="pair">
+                <div class="bar then" style="height: 83%" title="September 2025: €5.82m"><span>5.82</span></div>
+                <div class="bar now" style="height: 92%" title="September 2026: €6.44m"><span>6.44</span></div>
+              </div>
+              <p>September</p>
+            </div>
+          </div>
+          <p class="chart-note">Figures in € million. Scale maximum is €7.0m. Every month this quarter beat the same month last year.</p>
+        </article>
+
+        <article class="card">
+          <h3>Sales by channel</h3>
+          <div class="donut-wrap">
+            <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="Donut chart of sales mix: stores 46 percent, online 41 percent, wholesale 13 percent.">
+              <circle cx="21" cy="21" r="15.9" fill="none" stroke="#efe8dc" stroke-width="6"></circle>
+              <circle cx="21" cy="21" r="15.9" fill="none" stroke="#1b4d38" stroke-width="6"
+                stroke-dasharray="46 54" stroke-dashoffset="0" transform="rotate(-90 21 21)"></circle>
+              <circle cx="21" cy="21" r="15.9" fill="none" stroke="#b8612d" stroke-width="6"
+                stroke-dasharray="41 59" stroke-dashoffset="-46" transform="rotate(-90 21 21)"></circle>
+              <circle cx="21" cy="21" r="15.9" fill="none" stroke="#a6843d" stroke-width="6"
+                stroke-dasharray="13 87" stroke-dashoffset="-87" transform="rotate(-90 21 21)"></circle>
+              <text x="21" y="20" text-anchor="middle" font-size="4.2" font-family="Segoe UI, sans-serif" fill="#17211c">€18.4m</text>
+              <text x="21" y="24.5" text-anchor="middle" font-size="2.4" font-family="Segoe UI, sans-serif" fill="#5d675f">net sales</text>
+            </svg>
+            <ul class="channel-list">
+              <li><span><i class="swatch now"></i>Stores</span><strong>46% · €8.46m</strong></li>
+              <li><span><i class="swatch" style="background:#b8612d"></i>Online</span><strong>41% · €7.54m</strong></li>
+              <li><span><i class="swatch" style="background:#a6843d"></i>Wholesale</span><strong>13% · €2.40m</strong></li>
+            </ul>
+          </div>
+          <p class="chart-note">Online is the fastest channel, up 19% year on year. Store sales grew 6%.</p>
+        </article>
+      </div>
+
+      <article class="card" style="margin-top: 14px;">
+        <table>
+          <caption>Regional results, Q3 2026</caption>
+          <thead>
+            <tr>
+              <th>Region</th>
+              <th class="num">Revenue</th>
+              <th class="num">vs last year</th>
+              <th class="num">Gross margin</th>
+              <th class="num">NPS</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>North</td>
+              <td class="num">€5.12m</td>
+              <td class="num">+14.2%</td>
+              <td class="num">36.1%</td>
+              <td class="num">62</td>
+              <td><span class="tag good">Ahead</span></td>
+            </tr>
+            <tr>
+              <td>West</td>
+              <td class="num">€4.88m</td>
+              <td class="num">+9.8%</td>
+              <td class="num">35.4%</td>
+              <td class="num">58</td>
+              <td><span class="tag good">On track</span></td>
+            </tr>
+            <tr>
+              <td>East</td>
+              <td class="num">€4.21m</td>
+              <td class="num">+12.1%</td>
+              <td class="num">34.2%</td>
+              <td class="num">55</td>
+              <td><span class="tag good">On track</span></td>
+            </tr>
+            <tr>
+              <td>South</td>
+              <td class="num">€4.19m</td>
+              <td class="num">+6.4%</td>
+              <td class="num">32.1%</td>
+              <td class="num">47</td>
+              <td><span class="tag watch">Needs attention</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </article>
+
+      <article class="card" style="margin-top: 14px;">
+        <table>
+          <caption>Category performance</caption>
+          <thead>
+            <tr>
+              <th>Category</th>
+              <th class="num">Revenue</th>
+              <th class="num">Share</th>
+              <th class="num">Margin</th>
+              <th class="num">vs last year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Pantry staples</td>
+              <td class="num">€4.62m</td>
+              <td class="num">25.1%</td>
+              <td class="num">31.2%</td>
+              <td class="num">+8.4%</td>
+            </tr>
+            <tr>
+              <td>Fresh produce</td>
+              <td class="num">€3.91m</td>
+              <td class="num">21.3%</td>
+              <td class="num">28.6%</td>
+              <td class="num">+15.2%</td>
+            </tr>
+            <tr>
+              <td>Dairy</td>
+              <td class="num">€3.18m</td>
+              <td class="num">17.3%</td>
+              <td class="num">33.4%</td>
+              <td class="num">+4.1%</td>
+            </tr>
+            <tr>
+              <td>Bakery</td>
+              <td class="num">€2.74m</td>
+              <td class="num">14.9%</td>
+              <td class="num">41.8%</td>
+              <td class="num">+6.7%</td>
+            </tr>
+            <tr>
+              <td>Beverages</td>
+              <td class="num">€2.48m</td>
+              <td class="num">13.5%</td>
+              <td class="num">36.9%</td>
+              <td class="num">+18.6%</td>
+            </tr>
+            <tr>
+              <td>Household</td>
+              <td class="num">€1.47m</td>
+              <td class="num">8.0%</td>
+              <td class="num">29.1%</td>
+              <td class="num">−2.3%</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="chart-note">Household is the only category below last year. Bakery still carries the highest margin.</p>
+      </article>
+    </section>
+
+    <section id="details">
+      <h2>Details</h2>
+      <p class="lede">These notes explain how the figures were built and where to read further. All numbers in this report are example data created for the dashboard.</p>
+      <div class="detail-grid">
+        <article class="card">
+          <h3>How to read the figures</h3>
+          <ul>
+            <li><strong>Net revenue</strong> is sales after discounts and returns, before tax.</li>
+            <li><strong>Gross margin</strong> is net revenue minus product cost and inbound freight, divided by net revenue.</li>
+            <li><strong>NPS</strong> is the share of promoters minus the share of detractors from the post-purchase survey. Scores use responses collected in the quarter, with a minimum of 200 replies per region.</li>
+            <li>Year-on-year comparisons use the same calendar dates in 2025. Store openings after 1 July 2025 are included in both periods once they have traded for a full month.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>What sits behind the South gap</h3>
+          <p>The South region grew, but more slowly than the rest of the group. Three stores — Graz Süd, Klagenfurt Zentrum, and Villach West — account for about two thirds of the region’s NPS gap. Common issues in survey comments were queue time on Saturdays and missing fresh produce after 16:00.</p>
+          <p>Household declined because a private-label promotion ended in June and was not replaced. Beverages grew after the summer cooler range was extended online in July.</p>
+          <h3>Related material</h3>
+          <ul class="links">
+            <li><a href="#details">Q3 survey comment sample (example)</a></li>
+            <li><a href="#main">Store scorecard, South region (example)</a></li>
+            <li><a href="#conclusion">Freight contract options for Q4 (example)</a></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="conclusion">
+      <h2>Conclusion</h2>
+      <p class="lede">Keep the growth mix that is already working, and close the two leaks: freight cost and the South service gap.</p>
+      <article class="card">
+        <h3>Recommended actions and next steps</h3>
+        <ol class="actions">
+          <li><strong>Reset freight before the November peak.</strong> Commercial and supply chain should choose a Q4 rate by 24 October, with a target of recovering at least 0.4 percentage points of margin.</li>
+          <li><strong>Put the three South stores on a six-week recovery plan.</strong> Add Saturday checkout cover and a 15:00 fresh-produce refill. Review NPS weekly with the regional manager.</li>
+          <li><strong>Point the November promotion at beverages and fresh produce.</strong> Those categories are already growing and do not need a deep discount to move.</li>
+          <li><strong>Replace the lapsed household offer.</strong> Agree a smaller private-label bundle by 31 October so the category does not stay negative into Q4.</li>
+          <li><strong>Report back on 6 November</strong> with updated margin, South NPS, and whether the promotion plan is live.</li>
+        </ol>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <div>
+        <strong>Data sources.</strong> Example point-of-sale extract, example online orders, example finance ledger, and example customer survey. Figures are illustrative and were created for this report.
+      </div>
+      <div>
+        <strong>Author.</strong> Mara Elling, Commercial Analytics<br>
+        <strong>Last update.</strong> 9 October 2026, 09:40
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
